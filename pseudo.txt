@@ -1,0 +1,22 @@
+1) Creat Database
+
+2) Create Table "Product"
+    id (PK) int
+    Prdct Name varchar
+    price decimal
+    dept -name varchar
+    store quantity int
+
+3) Insert Seed SQL
+
+Create customer.js
+
+4)require package (mysql, inquirer)
+5) Create connection
+6) Connect -->
+7)Show products) run query to show products id name, price, etc)
+8) Inquire--> ask user what they want to purchase
+    What product and what quantity response 
+    .then if qty(id)from user < available qty in db
+    update database alertt/console (thank you for shopping)
+    else insufficient qty purchase something else or show products again(loop)
