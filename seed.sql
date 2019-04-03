@@ -1,4 +1,4 @@
-INSERT INTO products(product_name, department_name, price, stock_quantity)
+INSERT INTO product(product_name, department_name, price, stock_quantity)
 VALUES("Gloves", "Clothing", 5, 80),
 ("Pants", "Clothing", 25, 100),
 ("Bat", "Athletic", 15, 20),
