@@ -3,20 +3,14 @@ var mysql = require("mysql");
 var chalk = require("chalk");
 var Table = require("cli-table");
 var table = new Table({
-  head: ["Item ID", "Item", "Price", "Qnty"],
-  colWidths: [20, 40, 15, 15]
+  head: ["ID", "Item", "Price", "Quantity"],
+  colWidths: [5, 15, 15, 15]
 });
 
 var connection = mysql.createConnection({
   host: "localhost",
-
-  // Your port; if not 3306
   port: 3307,
-
-  // Your username
   user: "root",
-
-  // Your password
   password: "root",
   database: "bamazon_DB"
 });
@@ -29,7 +23,7 @@ connection.connect(function(err) {
 // Add a Display chart of the products.
 function displayProducts() {
   connection.query("SELECT * FROM product", function(err, res) {
-    // Display products and price to user. using the nift cli-table similar to Michaels example
+    // Display products and price to user. using the nifty cli-table similar to Michaels example
     for (var i = 0; i < res.length; i++) {
       table.push([
         res[i].item_id,
@@ -96,10 +90,11 @@ function displayProducts() {
             function(err, res) {
               if (err) throw err;
               console.log(chalk.green("Purchase successful!"));
-              console.log("Your total is $ " + Total);
+              console.log("Your total is $" + Total);
+              displayProducts();
             }
           );
         }
-      }); // .then of inquirer prompt
-  }); // first connection.query of the database
-} // goShopping function
+      });
+  });
+}
